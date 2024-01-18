@@ -1,0 +1,470 @@
+[
+  {
+    "column_name": "property_type_name",
+    "memory_abs": 11402,
+    "memory_per": 4.7093,
+    "dtype": "object"
+  },
+  {
+    "column_name": "purchaser_type_name",
+    "memory_abs": 11237,
+    "memory_per": 4.6411,
+    "dtype": "object"
+  },
+  {
+    "column_name": "agency_name",
+    "memory_abs": 9422,
+    "memory_per": 3.8913,
+    "dtype": "object"
+  },
+  {
+    "column_name": "owner_occupancy_name",
+    "memory_abs": 9309,
+    "memory_per": 3.8449,
+    "dtype": "object"
+  },
+  {
+    "column_name": "applicant_ethnicity_name",
+    "memory_abs": 8934,
+    "memory_per": 3.6899,
+    "dtype": "object"
+  },
+  {
+    "column_name": "action_taken_name",
+    "memory_abs": 8323,
+    "memory_per": 3.4375,
+    "dtype": "object"
+  },
+  {
+    "column_name": "applicant_race_name_1",
+    "memory_abs": 8153,
+    "memory_per": 3.3673,
+    "dtype": "object"
+  },
+  {
+    "column_name": "co_applicant_ethnicity_name",
+    "memory_abs": 7896,
+    "memory_per": 3.2611,
+    "dtype": "object"
+  },
+  {
+    "column_name": "msamd_name",
+    "memory_abs": 7848,
+    "memory_per": 3.2415,
+    "dtype": "object"
+  },
+  {
+    "column_name": "lien_status_name",
+    "memory_abs": 7742,
+    "memory_per": 3.1977,
+    "dtype": "object"
+  },
+  {
+    "column_name": "co_applicant_race_name_1",
+    "memory_abs": 7562,
+    "memory_per": 3.1235,
+    "dtype": "object"
+  },
+  {
+    "column_name": "co_applicant_sex_name",
+    "memory_abs": 7182,
+    "memory_per": 2.9664,
+    "dtype": "object"
+  },
+  {
+    "column_name": "preapproval_name",
+    "memory_abs": 7170,
+    "memory_per": 2.9612,
+    "dtype": "object"
+  },
+  {
+    "column_name": "applicant_sex_name",
+    "memory_abs": 7154,
+    "memory_per": 2.955,
+    "dtype": "object"
+  },
+  {
+    "column_name": "hoepa_status_name",
+    "memory_abs": 7128,
+    "memory_per": 2.9442,
+    "dtype": "object"
+  },
+  {
+    "column_name": "county_name",
+    "memory_abs": 6984,
+    "memory_per": 2.8845,
+    "dtype": "object"
+  },
+  {
+    "column_name": "loan_purpose_name",
+    "memory_abs": 6781,
+    "memory_per": 2.8007,
+    "dtype": "object"
+  },
+  {
+    "column_name": "loan_type_name",
+    "memory_abs": 6737,
+    "memory_per": 2.7826,
+    "dtype": "object"
+  },
+  {
+    "column_name": "respondent_id",
+    "memory_abs": 6542,
+    "memory_per": 2.7023,
+    "dtype": "object"
+  },
+  {
+    "column_name": "state_name",
+    "memory_abs": 6363,
+    "memory_per": 2.6283,
+    "dtype": "object"
+  },
+  {
+    "column_name": "agency_abbr",
+    "memory_abs": 5901,
+    "memory_per": 2.4374,
+    "dtype": "object"
+  },
+  {
+    "column_name": "state_abbr",
+    "memory_abs": 5761,
+    "memory_per": 2.3795,
+    "dtype": "object"
+  },
+  {
+    "column_name": "denial_reason_name_1",
+    "memory_abs": 3930,
+    "memory_per": 1.6234,
+    "dtype": "object"
+  },
+  {
+    "column_name": "denial_reason_name_2",
+    "memory_abs": 3299,
+    "memory_per": 1.3626,
+    "dtype": "object"
+  },
+  {
+    "column_name": "applicant_race_name_2",
+    "memory_abs": 3157,
+    "memory_per": 1.304,
+    "dtype": "object"
+  },
+  {
+    "column_name": "denial_reason_name_3",
+    "memory_abs": 3150,
+    "memory_per": 1.3011,
+    "dtype": "object"
+  },
+  {
+    "column_name": "co_applicant_race_name_2",
+    "memory_abs": 3134,
+    "memory_per": 1.2948,
+    "dtype": "object"
+  },
+  {
+    "column_name": "applicant_race_name_3",
+    "memory_abs": 3129,
+    "memory_per": 1.2923,
+    "dtype": "object"
+  },
+  {
+    "column_name": "applicant_race_name_4",
+    "memory_abs": 3126,
+    "memory_per": 1.2913,
+    "dtype": "object"
+  },
+  {
+    "column_name": "applicant_race_name_5",
+    "memory_abs": 3125,
+    "memory_per": 1.2909,
+    "dtype": "object"
+  },
+  {
+    "column_name": "co_applicant_race_name_3",
+    "memory_abs": 3125,
+    "memory_per": 1.291,
+    "dtype": "object"
+  },
+  {
+    "column_name": "co_applicant_race_name_4",
+    "memory_abs": 3125,
+    "memory_per": 1.2909,
+    "dtype": "object"
+  },
+  {
+    "column_name": "co_applicant_race_name_5",
+    "memory_abs": 3125,
+    "memory_per": 1.2907,
+    "dtype": "object"
+  },
+  {
+    "column_name": "as_of_year",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "agency_code",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "loan_type",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "property_type",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "loan_purpose",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "owner_occupancy",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "loan_amount_000s",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "preapproval",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "action_taken",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "msamd",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "state_code",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "county_code",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "census_tract_number",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "applicant_ethnicity",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "co_applicant_ethnicity",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "applicant_race_1",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "applicant_race_2",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "applicant_race_3",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "applicant_race_4",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "applicant_race_5",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "co_applicant_race_1",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "co_applicant_race_2",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "co_applicant_race_3",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "co_applicant_race_4",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "co_applicant_race_5",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "applicant_sex",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "co_applicant_sex",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "applicant_income_000s",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "purchaser_type",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "denial_reason_1",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "denial_reason_2",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "denial_reason_3",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "rate_spread",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "hoepa_status",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "lien_status",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "int64"
+  },
+  {
+    "column_name": "edit_status_name",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "edit_status",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "sequence_number",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "population",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "minority_population",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "hud_median_family_income",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "tract_to_msamd_income",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "number_of_owner_occupied_units",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "number_of_1_to_4_family_units",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  },
+  {
+    "column_name": "application_date_indicator",
+    "memory_abs": 781,
+    "memory_per": 0.3227,
+    "dtype": "float64"
+  }
+]

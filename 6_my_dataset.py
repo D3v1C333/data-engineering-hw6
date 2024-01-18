@@ -3,8 +3,10 @@ import os.path
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 
+#Файл скачивать по ссылке https://files.consumerfinance.gov/hmda-historic-loan-data/hmda_2017_nationwide_all-records_labels.zip
 def read_file(filename):
     return next(
         pd.read_csv(filename, low_memory=False, chunksize=100_000))
@@ -26,7 +28,6 @@ def get_memory_stat(df, filename):
     with open(filename, "w") as json_file:
         json.dump(column_stat, json_file, indent=2)
 
-
 def opt_obj(df):
     converted_obj = pd.DataFrame()
     for col in df.columns:
@@ -45,63 +46,62 @@ def opt_obj(df):
     df.to_csv("optimized_file.csv", index=False)
     size = os.path.getsize("optimized_file.csv") // 1024
     print(f"file size = {size} КБ ")
-    get_memory_stat(converted_obj, "./output/1_optimized_memory_stat.json")
+    get_memory_stat(converted_obj, "./output/6_optimized_memory_stat.json")
 
 
 def get_optimized_dataset():
-    selected_columns = ['number_of_game', 'length_minutes', 'h_hits', 'v_hits', 'h_errors', 'h_name', 'v_manager_name']
+    selected_columns = ['loan_amount_000s', 'census_tract_number', 'county_name', 'msamd_name', 'state_name', 'lien_status', 'hoepa_status']
 
-    for column in pd.read_csv("[1]game_logs.csv", chunksize=100_000, low_memory=False):
-        column['number_of_game'] = column['number_of_game'].astype('int32')
-        column['length_minutes'] = column['length_minutes'].astype('float32')
-        column['h_hits'] = column['h_hits'].astype('float32')
-        column['v_hits'] = column['v_hits'].astype('float32')
-        column['h_errors'] = column['h_errors'].astype('float32')
-        column['h_name'] = column['h_name'].astype('category')
-        column['v_manager_name'] = column['v_manager_name'].astype('category')
+    for column in pd.read_csv("hmda_2017_nationwide_all-records_labels.zip", chunksize=300_000, low_memory=False):
+        column['loan_amount_000s'] = column['loan_amount_000s'].astype('float32')
+        column['census_tract_number'] = column['census_tract_number'].astype('float32')
+        column['county_name'] = column['county_name'].astype('category')
+        column['msamd_name'] = column['msamd_name'].astype('category')
+        column['state_name'] = column['state_name'].astype('category')
+        column['lien_status'] = column['lien_status'].astype('int32')
+        column['hoepa_status'] = column['hoepa_status'].astype('int32')
+
 
         optimized_data = column[selected_columns]
-        optimized_data.to_csv("1.csv", index=False)
-
+        optimized_data.to_csv("6.csv", index=False)
 
 def plotting():
-    df = read_file("1.csv")
-    plt.figure(figsize=(30, 20))
+    df = read_file("6.csv")
+    plt.figure(figsize=(30, 15))
 
-    df_encoded = pd.get_dummies(df, columns=['h_name', 'v_manager_name'])
+    numeric_columns = df.select_dtypes(include=[np.number])
 
     plt.subplot(2, 3, 1)
-    sns.lineplot(x='number_of_game', y='length_minutes', data=df)
+    sns.scatterplot(x='census_tract_number', y='loan_amount_000s', data=df)
     plt.title('Линейный график')
 
     plt.subplot(2, 3, 2)
-    sns.barplot(x='h_name', y='h_hits', data=df)
-    plt.title('Столбчатая диаграмма')
+    sns.countplot(x='hoepa_status', data=df)
+    plt.title('Столбчатый график')
 
     plt.subplot(2, 3, 3)
-    df['number_of_game'].value_counts().plot.pie(autopct='%1.1f%%')
+    df['lien_status'].value_counts().plot.pie(autopct='%1.1f%%')
     plt.title('Круговая диаграмма')
 
     plt.subplot(2, 3, 4)
-    sns.heatmap(df_encoded[['number_of_game', 'length_minutes', 'h_hits', 'v_hits', 'h_errors']].corr(), annot=True,
-                cmap='coolwarm')
+    sns.heatmap(numeric_columns.corr(), annot=True, cmap='coolwarm')
     plt.title('График корреляции')
 
     plt.subplot(2, 3, 5)
-    sns.histplot(x='length_minutes', data=df, bins=10, kde=True)
+    sns.histplot(x='loan_amount_000s', data=df, bins=10, kde=True)
     plt.title('Гистограмма')
 
     plt.tight_layout()
-    plt.savefig("./output/1.png")
+    plt.savefig("./output/6.png")
 
 
-dataset = read_file("[1]game_logs.csv")
+dataset = read_file("hmda_2017_nationwide_all-records_labels.zip")
 
-size = os.path.getsize("[1]game_logs.csv") // 1024
+size = os.path.getsize("hmda_2017_nationwide_all-records_labels.zip") // 1024
 print(f"file size = {size} КБ ")
 
-get_memory_stat(dataset, "./output/1_memory_stat.json")
-opt_obj(dataset) # Оптимизированный файл занимает 79.227 КБ памяти против 132.900 у обычного и 58.486 КБ file in memory size против против 487.556 у неоптимизированного
+get_memory_stat(dataset, "./output/6_memory_stat.json")
+opt_obj(dataset)
 
 get_optimized_dataset()
 plotting()

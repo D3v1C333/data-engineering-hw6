@@ -3,7 +3,7 @@ import os.path
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
-
+import numpy as np
 
 def read_file(filename):
     return next(
@@ -26,7 +26,6 @@ def get_memory_stat(df, filename):
     with open(filename, "w") as json_file:
         json.dump(column_stat, json_file, indent=2)
 
-
 def opt_obj(df):
     converted_obj = pd.DataFrame()
     for col in df.columns:
@@ -45,63 +44,64 @@ def opt_obj(df):
     df.to_csv("optimized_file.csv", index=False)
     size = os.path.getsize("optimized_file.csv") // 1024
     print(f"file size = {size} КБ ")
-    get_memory_stat(converted_obj, "./output/1_optimized_memory_stat.json")
+    get_memory_stat(converted_obj, "./output/2_optimized_memory_stat.json")
 
 
 def get_optimized_dataset():
-    selected_columns = ['number_of_game', 'length_minutes', 'h_hits', 'v_hits', 'h_errors', 'h_name', 'v_manager_name']
+    selected_columns = ['askPrice', 'color', 'mileage', 'brandName', 'modelName', 'stockNum', 'dealerID']
 
-    for column in pd.read_csv("[1]game_logs.csv", chunksize=100_000, low_memory=False):
-        column['number_of_game'] = column['number_of_game'].astype('int32')
-        column['length_minutes'] = column['length_minutes'].astype('float32')
-        column['h_hits'] = column['h_hits'].astype('float32')
-        column['v_hits'] = column['v_hits'].astype('float32')
-        column['h_errors'] = column['h_errors'].astype('float32')
-        column['h_name'] = column['h_name'].astype('category')
-        column['v_manager_name'] = column['v_manager_name'].astype('category')
+    for column in pd.read_csv("[2]automotive.csv.zip", chunksize=100_000, low_memory=False):
+        column['askPrice'] = column['askPrice'].astype('int32')
+        column['color'] = column['color'].astype('category')
+        column['mileage'] = column['mileage'].astype('int32')
+        column['brandName'] = column['brandName'].astype('category')
+        column['modelName'] = column['modelName'].astype('category')
+        column['stockNum'] = column['stockNum'].astype('category')
+        column['dealerID'] = column['dealerID'].astype('int32')
+
 
         optimized_data = column[selected_columns]
-        optimized_data.to_csv("1.csv", index=False)
-
+        optimized_data.to_csv("2.csv", index=False)
 
 def plotting():
-    df = read_file("1.csv")
-    plt.figure(figsize=(30, 20))
+    df = read_file("2.csv")
+    plt.figure(figsize=(30, 15))
 
-    df_encoded = pd.get_dummies(df, columns=['h_name', 'v_manager_name'])
+    numeric_columns = df.select_dtypes(include=[np.number])
 
-    plt.subplot(2, 3, 1)
-    sns.lineplot(x='number_of_game', y='length_minutes', data=df)
-    plt.title('Линейный график')
+    plt.subplot(2,3,1)
+    sns.boxplot(x='dealerID', y='brandName', data=df)
+    plt.title('Ящик с усами: Распределение бренда по дилерам')
+    plt.xlabel('Дилер')
+    plt.ylabel('Бренд')
 
     plt.subplot(2, 3, 2)
-    sns.barplot(x='h_name', y='h_hits', data=df)
+    sns.barplot(x='brandName', y = 'askPrice',data=df)
     plt.title('Столбчатая диаграмма')
 
     plt.subplot(2, 3, 3)
-    df['number_of_game'].value_counts().plot.pie(autopct='%1.1f%%')
+    df['brandName'].value_counts().plot.pie(autopct='%1.1f%%')
     plt.title('Круговая диаграмма')
 
     plt.subplot(2, 3, 4)
-    sns.heatmap(df_encoded[['number_of_game', 'length_minutes', 'h_hits', 'v_hits', 'h_errors']].corr(), annot=True,
-                cmap='coolwarm')
+    sns.heatmap(numeric_columns.corr(), annot=True, cmap='coolwarm')
     plt.title('График корреляции')
 
     plt.subplot(2, 3, 5)
-    sns.histplot(x='length_minutes', data=df, bins=10, kde=True)
+    sns.histplot(x='mileage', data=df, bins=10, kde=True)
     plt.title('Гистограмма')
 
     plt.tight_layout()
-    plt.savefig("./output/1.png")
+    plt.savefig("./output/2.png")
 
 
-dataset = read_file("[1]game_logs.csv")
+dataset = read_file("[2]automotive.csv.zip")
 
-size = os.path.getsize("[1]game_logs.csv") // 1024
+size = os.path.getsize("[2]automotive.csv.zip") // 1024
 print(f"file size = {size} КБ ")
 
-get_memory_stat(dataset, "./output/1_memory_stat.json")
-opt_obj(dataset) # Оптимизированный файл занимает 79.227 КБ памяти против 132.900 у обычного и 58.486 КБ file in memory size против против 487.556 у неоптимизированного
+get_memory_stat(dataset, "./output/2_memory_stat.json")
+opt_obj(dataset)
 
 get_optimized_dataset()
 plotting()
